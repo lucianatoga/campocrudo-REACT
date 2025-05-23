@@ -1,6 +1,9 @@
 import { Button, Menu, Portal, Flex, Text } from "@chakra-ui/react"
 import { IoMdMenu } from "react-icons/io";
 import CartWidget from "./CartWidget"
+import { useEffect, useState } from "react";
+import { getAllCategories } from "@/services/products.service";
+import { useNavigate } from "react-router";
 
 const headerStyle={
     justifyContent:'space-between', 
@@ -11,6 +14,12 @@ const headerStyle={
 }
 
 const NavBar = () => {
+    const [categories, setCategories]=useState([]);
+    const navigate=useNavigate();
+    useEffect(()=>{
+        getAllCategories().then((res)=>{setCategories(res.data)})
+        .catch((error)=>console.error(error))
+    },[])
     return(
         <Flex style={headerStyle}>
             <Menu.Root>
@@ -20,14 +29,14 @@ const NavBar = () => {
                 <Portal>
                     <Menu.Positioner>
                         <Menu.Content>
-                            <Menu.Item value="Categoria1">AROS</Menu.Item>
-                            <Menu.Item value="Categoria2">CARTERAS</Menu.Item>
-                            <Menu.Item value="Categoria3">CINTOS</Menu.Item>
+                            <Menu.Item key='todos' value="todos" onClick={()=>{navigate('/products')}}>TODOS</Menu.Item>
+                            {categories.map((category)=>
+                            (<Menu.Item key={category.slug} value={category.slug} onClick={()=>{navigate(`/category/${category.slug}`)}}>{category.name.toUpperCase()}</Menu.Item>))}
                         </Menu.Content>
                     </Menu.Positioner>
                 </Portal>
             </Menu.Root>
-            <Text>CAMPO CRUDO</Text>
+            <Text onClick={()=>{navigate('/')}} cursor='pointer'>CAMPO CRUDO</Text>
             <CartWidget></CartWidget>
         </Flex>
         
