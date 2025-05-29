@@ -7,7 +7,7 @@ const MainLayout=()=>{
     return(
         <Box>
             <NavBar/>
-            <Flex direction='column' alignItems='center' padding='1.5rem 0' minHeight='80vh'>
+            <Flex direction='column' alignItems='center' justifyContent='center' padding='1.5rem 0' minHeight='80vh'>
                 <Outlet/>
             </Flex>
             <Footer/>

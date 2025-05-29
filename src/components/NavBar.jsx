@@ -37,7 +37,7 @@ const NavBar = () => {
                 </Portal>
             </Menu.Root>
             <Text onClick={()=>{navigate('/')}} cursor='pointer'>CAMPO CRUDO</Text>
-            <CartWidget></CartWidget>
+            <CartWidget/>
         </Flex>
         
     )

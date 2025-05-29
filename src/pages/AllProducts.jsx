@@ -1,4 +1,5 @@
 import ItemListContainer from "@/components/ItemListContainer";
+import LoadingCircle from "@/components/LoadingCircle";
 import { getAllProducts } from "@/services/products.service";
 import { useEffect, useState } from "react";
 
@@ -11,7 +12,7 @@ const AllProducts=()=>{
         .finally(()=>setLoading(false))
     },[])
     return(
-        loading ? <>Loading...</> : <ItemListContainer title='catálogo' products={products}/>
+        loading ? <LoadingCircle/> : <ItemListContainer title='catálogo' products={products}/>
     )
 }
 
