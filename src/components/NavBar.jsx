@@ -1,9 +1,8 @@
 import { Button, Menu, Portal, Flex, Text } from "@chakra-ui/react"
 import { IoMdMenu } from "react-icons/io";
 import CartWidget from "./CartWidget"
-import { useEffect, useState } from "react";
-import { getAllCategories } from "@/services/products.service";
 import { useNavigate } from "react-router";
+import { useGetFirestoreDocs } from "@/hooks/useGetFirestoreDocs";
 
 const headerStyle={
     justifyContent:'space-between', 
@@ -14,12 +13,8 @@ const headerStyle={
 }
 
 const NavBar = () => {
-    const [categories, setCategories]=useState([]);
     const navigate=useNavigate();
-    useEffect(()=>{
-        getAllCategories().then((res)=>{setCategories(res.data)})
-        .catch((error)=>console.error(error))
-    },[])
+    const {items: categories}=useGetFirestoreDocs('categories')
     return(
         <Flex style={headerStyle}>
             <Menu.Root>
@@ -36,8 +31,8 @@ const NavBar = () => {
                     </Menu.Positioner>
                 </Portal>
             </Menu.Root>
-            <Text onClick={()=>{navigate('/')}} cursor='pointer'>CAMPO CRUDO</Text>
-            <CartWidget/>
+            <Button variant="outline" size="md" onClick={()=>{navigate('/')}} cursor='pointer' fontWeight='500'>CAMPO CRUDO</Button>
+            <CartWidget />
         </Flex>
         
     )

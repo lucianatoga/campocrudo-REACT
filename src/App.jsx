@@ -4,12 +4,15 @@ import ItemListContainer from './components/ItemListContainer'
 import { Provider } from './components/ui/provider'
 import { RouterProvider } from 'react-router'
 import { router } from './routes'
+import { CartProvider } from './context/CartContext'
 
 function App() {
 
   return (
     <Provider>
-      <RouterProvider router={router}/>
+      <CartProvider>
+        <RouterProvider router={router}/>
+      </CartProvider>
     </Provider>
   )
 }
