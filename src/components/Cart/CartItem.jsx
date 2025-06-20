@@ -44,7 +44,9 @@ const CartItem=()=>{
             </tr>
           ))}
           </tbody>
-          <tfoot><p>Total:{totalPrice}</p>
+          <tfoot><tr>
+            <th colSpan={3}>Total: ${totalPrice}</th>
+            </tr>
           </tfoot>
           
         </table>

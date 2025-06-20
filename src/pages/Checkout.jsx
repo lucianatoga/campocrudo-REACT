@@ -1,6 +1,6 @@
 import { CartContext } from "@/context/CartContext";
 import { db } from "@/services/config/firebase";
-import { Button, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Heading, Text } from "@chakra-ui/react";
 import { addDoc, collection } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 
@@ -21,23 +21,26 @@ const Checkout=()=>{
     },[cart])
     const totalPrice=getTotalPrice();
 
-    const handleSubmit=(e)=>{
+    const handleSubmit=(e)=>{ 
         e.preventDefault();
         const saleData={...saleForm,products:itemsForCheckout, totalPrice:totalPrice};
         
         const salesCollection=collection(db, 'sales');
         addDoc(salesCollection, saleData).then((doc)=>setOrderId(doc.id))
         .catch((error)=>console.error(error))
-        .finally(()=>{console.log(saleData); setCart([]); setFinalized(true)})
+        .finally(()=>{setCart([]); setFinalized(true)})
     }
     return(
-        finalized ? <Text>Muchas gracias por tu compra! Tu número de pédido es: {orderId}</Text> :
+        finalized ? <Text>Muchas gracias por tu compra! Tu número de pédido es: <b>{orderId}</b></Text> :
+        <Box>
+            <Heading marginBottom='2rem'>Por favor complete el formulario para finalizar</Heading>
         <form onSubmit={(e)=>handleSubmit(e)}>
             <Input type='text' placeholder="Nombre completo" onChange={(e)=>setSaleForm({...saleForm, fullName: e.target.value})}/>
             <Input type='email' placeholder="Email" onChange={(e)=>setSaleForm({...saleForm, email: e.target.value})}/>
-            <Input type='number' placeholder="Nro celular" onChange={(e)=>setSaleForm({...saleForm, phoneNumber: e.target.value})}/>
-            <Button type='submit'>Finalizar compra</Button>
+            <Input type='number' placeholder="Telefono" onChange={(e)=>setSaleForm({...saleForm, phoneNumber: e.target.value})}/>
+            <Button type='submit' marginTop='1rem'>Finalizar compra</Button>
         </form>
+        </Box>
     )
 }
 

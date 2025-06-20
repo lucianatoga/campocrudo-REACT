@@ -8,13 +8,13 @@
   text-align: left;
   width: 100%;
 }
-.items-table th {
+.items-table thead th {
   font-weight: 400;
   font-size: smaller;
   padding-bottom: 1rem;
   border-bottom: 1px solid black;
 }
-.items-table td {
+.items-table tbody td {
   padding: 0.5rem;
   width: auto;
   height: 10rem;
@@ -25,6 +25,12 @@
     height: 8rem;
     object-fit: cover;
 }
+.items-table tfoot th{
+  padding: 1rem 6rem 0 0;
+  text-align: right;
+  font-weight: 500;
+}
+
 .item-details {
   display: flex;
   flex-direction: column;
