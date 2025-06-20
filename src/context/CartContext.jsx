@@ -14,12 +14,20 @@ export const CartProvider=({children})=>{
                 return([...prevCart, {...product, quantity:1}])
             }
         })
-        console.log(cart)
     }
-    //add CONDITIONALLY (if prod.qty > 1 show, else disable) to an onClick event to the cart (-) buttons
+
     const decreaseQty=({product})=>{
+
         setCart((prevCart)=>{
-            return prevCart.map((item)=>{item.id===product.id ? {...item, quantity:item.quantity-1} : item})
+            const prodInCart = prevCart.find((item)=>item.id===product.id);
+            if(prodInCart.quantity>1){
+                return prevCart.map((item)=>
+                item.id===product.id ? {...item, quantity:item.quantity-1} : item)
+            }
+            if(prodInCart.quantity===1){
+                return prevCart.filter((item)=>item.id!==product.id)
+            }
+             
         })
     }
 
@@ -27,8 +35,11 @@ export const CartProvider=({children})=>{
         return cart.reduce((acc, item)=> acc+item.quantity, 0);
     }
 
+    const getTotalPrice=()=>{
+        return cart.reduce((acc, item)=> acc+(item.price*item.quantity), 0);
+    }
     return(
-        <CartContext.Provider value={{cart, addToCart, decreaseQty, getItemsCount}}>
+        <CartContext.Provider value={{cart, setCart, addToCart, decreaseQty, getItemsCount, getTotalPrice}}>
             {children}
         </CartContext.Provider>
     )

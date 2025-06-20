@@ -2,6 +2,7 @@ import MainLayout from "@/layouts/MainLayout";
 import AllProducts from "@/pages/AllProducts";
 import Cart from "@/pages/Cart";
 import Category from "@/pages/Category";
+import Checkout from "@/pages/Checkout";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/NotFound";
 import SingleProduct from "@/pages/SingleProduct";
@@ -31,6 +32,10 @@ const routes=[
             {
                 path:'/cart',
                 element:<Cart/>
+            },
+            {
+                path:'/checkout',
+                element:<Checkout/>
             },
             {
                 path:'*',

@@ -1,16 +1,24 @@
 import CategoryListContainer from "@/components/CategoryListContainer";
+import LoadingCircle from "@/components/LoadingCircle";
 import { useGetFirestoreDocs } from "@/hooks/useGetFirestoreDocs";
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 const Home=()=>{
-    const {categories}=useGetFirestoreDocs('categories');
+    const {items:categories, loading}=useGetFirestoreDocs('categories');
+    const {items:products}=useGetFirestoreDocs('products');
+    const [catImages, setCatImages]=useState([]);
+
+    useEffect(()=>{
+        setCatImages(categories.map((cat)=>{
+        const prod=(products.find((prod)=>prod.category===cat.slug));
+        
+        return({...cat, image:prod?.images?.[0]||null, alt:prod?.description||null})
+        }))
+    },[products, categories])
+
     return(
-        <Box>
-            <Heading>Bienvenidos</Heading>
-            <Flex>
-                <CategoryListContainer categories={categories}/>
-            </Flex>
-        </Box>
+
+        loading ? <LoadingCircle/> : <CategoryListContainer categories={catImages}/>
     )
 }
 
