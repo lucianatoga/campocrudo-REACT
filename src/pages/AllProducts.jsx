@@ -1,4 +1,4 @@
-import ItemListContainer from "@/components/ItemListContainer";
+import ItemListContainer from "@/components/ItemListConatiner/ItemListContainer";
 import LoadingCircle from "@/components/LoadingCircle";
 import { useGetFirestoreDocs } from "@/hooks/useGetFirestoreDocs";
 

@@ -1,4 +1,4 @@
-import ItemContainer from "@/components/ItemContainer";
+import ItemContainer from "@/components/ItemContainer/ItemContainer";
 import LoadingCard from "@/components/LoadingCard";
 import { db } from "@/services/config/firebase";
 import { doc, getDoc } from "firebase/firestore";

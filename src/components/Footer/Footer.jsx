@@ -1,8 +1,9 @@
 import { Flex } from "@chakra-ui/react"
+import './Footer.css'
 
 const Footer=()=>{
     return(
-        <Flex height='3rem' backgroundColor='linen' justifyContent='center' alignItems='center' fontSize='12px'>
+        <Flex className="footer">
             <p>Copyright © 2025 / campo crudo</p>
         </Flex>
     )

@@ -1,0 +1,31 @@
+.product-card{
+    flex-direction: row;
+    justify-content:space-between; 
+    overflow: hidden;
+    padding: .5rem;
+    height: 23rem;
+    Image{
+        max-height: 25rem;
+        aspect-ratio: 3/4;
+    }
+}
+.product-card-body{
+    flex-direction:column;
+    height: 90%;
+    width: 45%;
+    
+}
+/* .agregar-al-carrito{
+    background-color: linen;
+    border: 1px solid gray;
+    color: black;
+} */
+
+.arrows-enabled {
+    cursor: pointer;
+    color: black;
+}
+.arrows-disabled {
+    cursor: auto;
+    color: gray;
+}

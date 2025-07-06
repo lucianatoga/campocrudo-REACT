@@ -13,7 +13,7 @@ const CartItem=()=>{
     
 
     return(
-      <Flex className="shopping-cart-summary" height='100%' direction='column' gap='3rem'>
+      <Flex className="shopping-cart-summary" >
         <Heading size='xl'>CART DETAIL</Heading>
         <table className="items-table">
           <thead>

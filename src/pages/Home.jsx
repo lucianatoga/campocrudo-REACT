@@ -1,4 +1,4 @@
-import CategoryListContainer from "@/components/CategoryListContainer";
+import CategoryListContainer from "@/components/CategoryListContainer/CategoryListContainer";
 import LoadingCircle from "@/components/LoadingCircle";
 import { useGetFirestoreDocs } from "@/hooks/useGetFirestoreDocs";
 import { useEffect, useState } from "react";

@@ -1,0 +1,7 @@
+.header-container{
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #DCDCDC;
+    padding: 1rem 2rem;
+    background-color: linen
+}

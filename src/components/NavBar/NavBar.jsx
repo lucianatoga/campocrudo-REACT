@@ -1,22 +1,16 @@
 import { Button, Menu, Portal, Flex, Text } from "@chakra-ui/react"
 import { IoMdMenu } from "react-icons/io";
-import CartWidget from "./CartWidget"
+import CartWidget from "../CartWidget"
 import { useNavigate } from "react-router";
 import { useGetFirestoreDocs } from "@/hooks/useGetFirestoreDocs";
+import './NavBar.css'
 
-const headerStyle={
-    justifyContent:'space-between', 
-    alignItems: 'center',
-    border:'1px solid #DCDCDC',
-    padding: '1rem 2rem',
-    backgroundColor:'linen'
-}
 
 const NavBar = () => {
     const navigate=useNavigate();
     const {items: categories}=useGetFirestoreDocs('categories')
     return(
-        <Flex style={headerStyle}>
+        <Flex className='header-container'>
             <Menu.Root>
                 <Menu.Trigger asChild>
                     <Button variant="outline" size="md">catálogo <IoMdMenu /></Button>
@@ -31,7 +25,7 @@ const NavBar = () => {
                     </Menu.Positioner>
                 </Portal>
             </Menu.Root>
-            <Button variant="outline" size="md" onClick={()=>{navigate('/')}} cursor='pointer' fontWeight='500'>CAMPO CRUDO</Button>
+            <Button variant="outline" size="md" onClick={()=>{navigate('/')}}>CAMPO CRUDO</Button>
             <CartWidget />
         </Flex>
         

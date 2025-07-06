@@ -1,4 +1,4 @@
-import ItemListContainer from "@/components/ItemListContainer";
+import ItemListContainer from "@/components/ItemListConatiner/ItemListContainer";
 import LoadingCircle from "@/components/LoadingCircle";
 import { db } from "@/services/config/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";

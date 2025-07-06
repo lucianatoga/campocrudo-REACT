@@ -1,0 +1,16 @@
+/* .heading{
+    font-weight: 500;
+    font-family: 'Meow Script', 'cursive';
+    font-size: 2rem;
+    padding-bottom: 1rem
+} */
+.product-cards-container{
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center
+}
+/* .agregar-al-carrito{
+    background-color: linen;
+    border: 1px solid gray;
+    color: black;
+} */
