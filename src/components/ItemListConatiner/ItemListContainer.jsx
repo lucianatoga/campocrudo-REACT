@@ -13,7 +13,7 @@ const ItemListContainer = ({title, products}) => {
         <h1 className="heading">{title}</h1>
         <Flex className="product-cards-container">
         { products.map((product)=>(
-            <Card.Root key={product.id} width="15rem" overflow="hidden" >
+            <Card.Root key={product.id} variant={'elevated'} width="15rem" overflow="hidden" >
             <Image maxHeight='19rem' onClick={()=>navigate(`/product/${product.id}`)} cursor='pointer'
                 src={product.images[0]}
                 alt={product.description}

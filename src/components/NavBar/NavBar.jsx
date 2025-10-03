@@ -13,11 +13,11 @@ const NavBar = () => {
         <Flex className='header-container'>
             <Menu.Root>
                 <Menu.Trigger asChild>
-                    <Button variant="outline" size="md">catálogo <IoMdMenu /></Button>
+                    <Button variant="solid" className="navbar-btn" size="md">catálogo <IoMdMenu /></Button>
                 </Menu.Trigger>
                 <Portal>
                     <Menu.Positioner>
-                        <Menu.Content>
+                        <Menu.Content backgroundColor={'linen'}>
                             <Menu.Item key='todos' value="todos" onClick={()=>{navigate('/products')}}>TODOS</Menu.Item>
                             {categories.map((category)=>
                             (<Menu.Item key={category.slug} value={category.slug} onClick={()=>{navigate(`/category/${category.slug}`)}}>{category.name.toUpperCase()}</Menu.Item>))}
@@ -25,7 +25,7 @@ const NavBar = () => {
                     </Menu.Positioner>
                 </Portal>
             </Menu.Root>
-            <Button variant="outline" size="md" onClick={()=>{navigate('/')}}>CAMPO CRUDO</Button>
+            <Button variant="solid" className="navbar-btn" size="md" onClick={()=>{navigate('/')}}>CAMPO CRUDO</Button>
             <CartWidget />
         </Flex>
         

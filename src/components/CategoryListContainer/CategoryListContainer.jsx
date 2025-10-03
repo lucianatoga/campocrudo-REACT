@@ -8,9 +8,9 @@ const CategoryListContainer=({categories})=>{
     return(
         <Flex className="cards-container">
             {categories.map((cat)=>(
-                <Card.Root key={cat.id} maxW="xl" className="category-card">
+                <Card.Root key={cat.id} variant='elevated' maxW="xl" className="category-card">
                     <Image width="100%" height="100%" src={cat.image} alt={cat.alt}/>
-                    <Button variant="outline"  size="lg" onClick={()=> navigate(`/category/${cat.slug}`)}>{cat.name} <FiPlus /> </Button>
+                    <Button  size="lg" onClick={()=> navigate(`/category/${cat.slug}`)}>{cat.name} <FiPlus /> </Button>
                 </Card.Root>
             ))}
         </Flex>

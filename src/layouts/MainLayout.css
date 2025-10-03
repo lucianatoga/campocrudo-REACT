@@ -1,3 +1,6 @@
+*{
+    color: black;
+}
 .heading{
     font-weight: 500;
     font-family: 'Meow Script', 'cursive';
@@ -14,5 +17,6 @@
     align-items: center;
     justify-content: center;
     padding: 1.5rem 0;
-    min-height: 80vh
+    min-height: 80vh;
+    background-color: ivory;
 }

@@ -10,7 +10,7 @@ const CartWidget = ()=>{
     const navigate=useNavigate()
     return(
         <Flex >
-            <Button variant="outline" size="md" onClick={()=>{navigate('/cart')}} style={{cursor:'pointer'}}>
+            <Button variant="solid" className="navbar-btn" size="md" onClick={()=>{navigate('/cart')}} style={{cursor:'pointer'}}>
                 <IoCartOutline size={'1.5rem'}/>
                 <p>{totalCount}</p>
                 </Button>

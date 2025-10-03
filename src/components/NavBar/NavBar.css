@@ -5,3 +5,7 @@
     padding: 1rem 2rem;
     background-color: linen
 }
+.navbar-btn{
+    background-color: linen;
+    border: 1px solid lightgray;
+}

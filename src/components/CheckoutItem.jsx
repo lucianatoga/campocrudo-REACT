@@ -8,7 +8,7 @@ const CheckoutItem=({handleSubmit, setSaleForm, saleForm})=>{
                 <Input type='text' placeholder="Nombre completo" onChange={(e)=>setSaleForm({...saleForm, fullName: e.target.value})}/>
                 <Input type='email' placeholder="Email" onChange={(e)=>setSaleForm({...saleForm, email: e.target.value})}/>
                 <Input type='number' placeholder="Telefono" onChange={(e)=>setSaleForm({...saleForm, phoneNumber: e.target.value})}/>
-                <Button type='submit' marginTop='1rem'>Finalizar compra</Button>
+                <Button variant='outline' type='submit' marginTop='1rem'>Finalizar compra</Button>
             </form>
         </Box>
     )
